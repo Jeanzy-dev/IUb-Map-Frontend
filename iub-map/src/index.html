@@ -1,13 +1,790 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <title>IubMap</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta charset="UTF-8">
+
+    <title>IUB MAP</title>
+
+    <!-- ==================================================
+         ICONO DE LA PESTAÑA
+    =================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/iub-map-icon.png">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
 </head>
+
+
 <body>
-  <app-root></app-root>
+
+
+<!-- ==========================================================
+     HEADER
+========================================================== -->
+
+<header class="header">
+
+
+    <!-- LOGO -->
+
+    <div class="brand">
+
+        <img
+            src="images/icono-iub-map.png"
+            alt="IUB MAP"
+            class="logo-header">
+
+    </div>
+
+
+
+    <!-- BUSCADOR PRINCIPAL -->
+
+    <div class="search-header">
+
+
+        <!-- ICONO BUSCAR -->
+
+        <svg
+            class="icon icon-search"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <circle
+                cx="11"
+                cy="11"
+                r="7">
+            </circle>
+
+            <line
+                x1="16"
+                y1="16"
+                x2="21"
+                y2="21">
+            </line>
+
+        </svg>
+
+
+        <input
+            type="text"
+            placeholder="Buscar salón, edificio o servicio">
+
+    </div>
+
+
+
+    <!-- USUARIO -->
+
+    <div class="usuario">
+
+
+        <!-- ICONO PERSONA -->
+
+        <svg
+            class="user-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <circle
+                cx="12"
+                cy="8"
+                r="4">
+            </circle>
+
+            <path
+                d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7">
+            </path>
+
+        </svg>
+
+
+        <span>
+            Invitado
+        </span>
+
+
+    </div>
+
+
+</header>
+
+
+
+
+
+<!-- ==========================================================
+     CONTENIDO PRINCIPAL
+========================================================== -->
+
+<main class="layout">
+
+
+<!-- ==========================================================
+     SIDEBAR
+========================================================== -->
+
+<aside class="sidebar">
+
+
+    <!-- ======================================================
+         MENU
+    ======================================================= -->
+
+    <nav class="menu">
+
+
+        <!-- MAPA -->
+
+        <button class="active">
+
+
+            <svg
+                class="menu-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <path
+                    d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z">
+                </path>
+
+                <path
+                    d="M9 3v15">
+                </path>
+
+                <path
+                    d="M15 6v15">
+                </path>
+
+            </svg>
+
+
+            <span>
+                Mapa
+            </span>
+
+
+        </button>
+
+
+
+        <!-- EDIFICIOS -->
+
+        <button>
+
+
+            <svg
+                class="menu-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <path
+                    d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16">
+                </path>
+
+                <path
+                    d="M2 21h20">
+                </path>
+
+                <rect
+                    x="7"
+                    y="7"
+                    width="3"
+                    height="3">
+                </rect>
+
+                <rect
+                    x="14"
+                    y="7"
+                    width="3"
+                    height="3">
+                </rect>
+
+                <rect
+                    x="7"
+                    y="13"
+                    width="3"
+                    height="3">
+                </rect>
+
+                <rect
+                    x="14"
+                    y="13"
+                    width="3"
+                    height="3">
+                </rect>
+
+            </svg>
+
+
+            <span>
+                Edificios
+            </span>
+
+
+        </button>
+
+
+
+        <!-- AULAS -->
+
+        <button>
+
+
+            <svg
+                class="menu-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <path
+                    d="M5 4h14v16H5z">
+                </path>
+
+                <path
+                    d="M9 4v16">
+                </path>
+
+                <circle
+                    cx="16"
+                    cy="12"
+                    r="1">
+                </circle>
+
+            </svg>
+
+
+            <span>
+                Aulas
+            </span>
+
+
+        </button>
+
+
+
+        <!-- DEPENDENCIAS -->
+
+        <button>
+
+
+            <svg
+                class="menu-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <line
+                    x1="4"
+                    y1="6"
+                    x2="20"
+                    y2="6">
+                </line>
+
+                <line
+                    x1="4"
+                    y1="12"
+                    x2="20"
+                    y2="12">
+                </line>
+
+                <line
+                    x1="4"
+                    y1="18"
+                    x2="20"
+                    y2="18">
+                </line>
+
+                <circle
+                    cx="8"
+                    cy="6"
+                    r="1.5">
+                </circle>
+
+                <circle
+                    cx="14"
+                    cy="12"
+                    r="1.5">
+                </circle>
+
+                <circle
+                    cx="10"
+                    cy="18"
+                    r="1.5">
+                </circle>
+
+            </svg>
+
+
+            <span>
+                Dependencias
+            </span>
+
+
+        </button>
+
+
+
+        <!-- SERVICIOS -->
+
+        <button>
+
+
+            <svg
+                class="menu-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <path
+                    d="M4 7h16">
+                </path>
+
+                <path
+                    d="M6 7v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7">
+                </path>
+
+                <path
+                    d="M9 7V5a3 3 0 0 1 6 0v2">
+                </path>
+
+                <path
+                    d="M9 12h6">
+                </path>
+
+            </svg>
+
+
+            <span>
+                Servicios
+            </span>
+
+
+        </button>
+
+
+    </nav>
+
+
+
+
+
+    <!-- ======================================================
+         BUSQUEDA DE ESPACIOS
+    ======================================================= -->
+
+    <section class="search-place">
+
+
+        <h3>
+            Buscar espacio
+        </h3>
+
+
+        <input
+            id="buscarSalon"
+            type="text"
+            placeholder="Ej: AD-06">
+
+
+        <button id="btnBuscar">
+
+
+            <svg
+                class="button-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="7">
+                </circle>
+
+                <line
+                    x1="16"
+                    y1="16"
+                    x2="21"
+                    y2="21">
+                </line>
+
+            </svg>
+
+
+            Buscar
+
+
+        </button>
+
+
+    </section>
+
+
+
+
+
+    <!-- ======================================================
+         LEYENDA
+    ======================================================= -->
+
+    <section class="legend">
+
+
+        <h3>
+            Leyenda
+        </h3>
+
+
+        <p>
+            <span class="legend-color classrooms"></span>
+            Aulas
+        </p>
+
+
+        <p>
+            <span class="legend-color services"></span>
+            Servicios
+        </p>
+
+
+        <p>
+            <span class="legend-color administration"></span>
+            Administración
+        </p>
+
+
+        <p>
+            <span class="legend-color common"></span>
+            Zonas comunes
+        </p>
+
+
+    </section>
+
+
+</aside>
+
+
+
+
+
+
+
+<!-- ==========================================================
+     AREA DEL MAPA
+========================================================== -->
+
+<section class="map-container">
+
+
+    <!-- PANEL INFORMACION -->
+
+    <div class="info-card">
+
+
+        <h2>
+            Selecciona un espacio
+        </h2>
+
+
+        <p>
+            Haz clic sobre una zona del mapa
+            para consultar información.
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <!-- ======================================================
+         CONTROLES DEL MAPA
+    ======================================================= -->
+
+    <div class="map-controls">
+
+
+        <!-- ZOOM IN -->
+
+        <button id="zoomIn" aria-label="Acercar">
+
+
+            <svg
+                viewBox="0 0 24 24"
+                class="control-icon"
+                aria-hidden="true">
+
+                <line
+                    x1="12"
+                    y1="5"
+                    x2="12"
+                    y2="19">
+                </line>
+
+                <line
+                    x1="5"
+                    y1="12"
+                    x2="19"
+                    y2="12">
+                </line>
+
+            </svg>
+
+
+        </button>
+
+
+
+        <!-- ZOOM OUT -->
+
+        <button id="zoomOut" aria-label="Alejar">
+
+
+            <svg
+                viewBox="0 0 24 24"
+                class="control-icon"
+                aria-hidden="true">
+
+                <line
+                    x1="5"
+                    y1="12"
+                    x2="19"
+                    y2="12">
+                </line>
+
+            </svg>
+
+
+        </button>
+
+
+
+        <!-- REINICIAR -->
+
+        <button id="reset" aria-label="Restablecer">
+
+
+            <svg
+                viewBox="0 0 24 24"
+                class="control-icon"
+                aria-hidden="true">
+
+                <path
+                    d="M20 11a8 8 0 1 0 2 5">
+                </path>
+
+                <polyline
+                    points="20 4 20 11 13 11">
+                </polyline>
+
+            </svg>
+
+
+        </button>
+
+
+    </div>
+
+
+
+
+
+    <!-- ======================================================
+         VISUALIZADOR SVG
+    ======================================================= -->
+
+    <div id="viewport">
+
+
+        <div id="mapTransform">
+
+
+            <object
+                id="mapa"
+                data="images/mapa.svg"
+                type="image/svg+xml">
+
+            </object>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+
+
+<!-- ==========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+        <!-- IDENTIDAD -->
+
+        <div class="footer-brand">
+
+
+            <div class="footer-logo">
+
+
+                <img
+                    src="images/iub-map-icon.png"
+                    alt="IUB MAP">
+
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+                    IUB MAP
+                </h3>
+
+
+                <p>
+                    Navega tu universidad
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="footer-section">
+
+
+            <h4>
+                Navegación
+            </h4>
+
+
+            <div class="footer-links">
+
+
+                <a href="#">
+                    Mapa
+                </a>
+
+
+                <a href="#">
+                    Edificios
+                </a>
+
+
+                <a href="#">
+                    Aulas
+                </a>
+
+
+                <a href="#">
+                    Servicios
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- INFORMACIÓN -->
+
+        <div class="footer-section">
+
+
+            <h4>
+                IUB MAP
+            </h4>
+
+
+            <p>
+                Localiza rápidamente aulas,
+                edificios y servicios dentro
+                de la universidad.
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <!-- ESTADO -->
+
+        <div class="footer-status">
+
+
+            <span class="status-dot"></span>
+
+
+            <span>
+                Modo invitado
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- PARTE INFERIOR -->
+
+    <div class="footer-bottom">
+
+
+        <span>
+            © 2026 IUB MAP. Todos los derechos reservados.
+        </span>
+
+
+        <span>
+            Navega tu universidad
+        </span>
+
+
+    </div>
+
+
+</footer>
+
+
 </body>
+
 </html>
