@@ -73,7 +73,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 0 18px;
+  padding: 0 0 0 18px;
   background: #f5f7fc;
   border-radius: 30px;
   border: 1px solid var(--border);
@@ -161,6 +161,71 @@
 /* ==========================================================
    MENU
 ========================================================== */
+/* --- Integración de la Barra de Búsqueda Completa --- */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface); /* Fondo blanco, igual que la cabecera */
+  border: 1px solid var(--border);
+  border-radius: var(--radius); /* Radio de 18px */
+  padding: 2px; /* Un pequeño margen interno para el botón */
+  max-width: 600px; /* Ajusta el ancho máximo según tu diseño */
+  margin: 0 auto; /* Centrar en la cabecera si es necesario */
+}
+
+.search-bar input {
+  flex: 1; /* El input ocupa todo el espacio restante */
+  border: none; /* Quitamos el borde al input para que se fusione con el contenedor */
+  outline: none; /* Quitamos el contorno de foco por defecto */
+  padding: 10px 10px 10px 15px; /* Ajuste de padding, más espacio para el texto */
+  font-size: 14px;
+  background: transparent; /* Fondo transparente */
+  color: var(--text-light); /* Color del texto secundario de tu paleta */
+}
+
+/* Alineación del icono de lupa */
+.search-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 15px; /* Separación del borde */
+  fill: none;
+  stroke: var(--text-light); /* Mismo color que el texto del input */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* --- Estilos del Nuevo Botón de Búsqueda --- */
+
+.search-button {
+  background-color: var(--primary); /* Azul marino de tu diseño */
+  color: var(--surface); /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: var(--radius); /* Mismo radio de 18px, redondeado completo */
+  padding: 10px 20px; /* Padding interno equilibrado */
+  font-size: 14px;
+  font-weight: 600; /* Texto seminegrita, como en el menú */
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease; /* Transición suave */
+  height: 100%; /* El botón ocupa la altura del contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efectos al pasar el ratón (Hover) */
+.search-button:hover {
+  background-color: #2c3e60; /* Un azul marino ligeramente diferente para el hover, similar al efecto en el menú */
+  transform: translateY(-1px); /* Pequeño movimiento hacia arriba */
+}
+
+/* Efecto al hacer clic (Active) */
+.search-button:active {
+  transform: translateY(1px); /* Pequeño movimiento hacia abajo */
+}
 
 .menu {
   display: flex;
@@ -458,7 +523,7 @@
   margin: auto;
   padding: 35px 45px;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr auto;
+  grid-template-columns: 1.5fr 1fr;
   align-items: center;
   gap: 45px;
 }
