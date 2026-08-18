@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* Scrollbar Global */
+/* Remplazo del html, body */
+
+  /* Reseteo local para todos los elementos del componente */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5cddc;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f7fb;
+}

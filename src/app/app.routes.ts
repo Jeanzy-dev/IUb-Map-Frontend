@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => 
-      import('./home/home/home').then((m) => m.Home)
+      import('./home/home').then((m) => m.Home)
   }
 
 ];
