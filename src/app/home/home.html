@@ -3,16 +3,23 @@
     <img src="images/icono-iub-map.png" alt="IUB MAP" class="logo-header" />
   </div>
 
-  <div class="search-header">
+  <form class="search-header" [formGroup]="salonForm">
     <svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true">
       <circle cx="11" cy="11" r="7"></circle>
 
       <line x1="16" y1="16" x2="21" y2="21"></line>
     </svg>
 
-    <input type="text" placeholder="Buscar salón, edificio o servicio" />
-    <button class="search-button">Buscar</button>
-  </div>
+    <input
+      type="text"
+      #inputSalon
+      placeholder="Buscar salón, edificio o servicio"
+      formControlName="nombreSalon"
+    />
+    <button class="search-button" (click)="buscarEspacio(inputSalon.value)">
+      Buscar
+    </button>
+  </form>
 
   <div class="usuario">
     <svg class="user-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -52,6 +59,7 @@
 
   <section class="map-container">
     <svg
+      #svgMapa
       version="1.1"
       id="svg1"
       width="1024"

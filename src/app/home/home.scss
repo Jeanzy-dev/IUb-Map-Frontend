@@ -27,6 +27,13 @@
   color: var(--text);
 }
 
+:host ::ng-deep .resaltado {
+  fill: #ffd43b !important;
+  stroke: #1a2245 !important;
+  stroke-width: 4px !important;
+  filter: drop-shadow(0 0 10px #ffd43b);
+  transition: all 0.3s ease;
+}
 /* ==========================================================
    HEADER
 ========================================================== */
