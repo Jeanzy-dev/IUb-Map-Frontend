@@ -1,5 +1,5 @@
-<div class="modal-backdrop" >
-  <div class="modal-container" >
+<div class="modal-backdrop">
+  <div class="modal-container">
     
     <!-- Encabezado del Modal -->
     <div class="modal-header">
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Formulario -->
-    <form >
+    <form [formGroup]="userForm" >
       <div class="modal-body">
         
         <!-- Nombre Completo -->
@@ -21,10 +21,12 @@
           <input
             type="text"
             id="fullName"
-            name="fullName"
+            formControlName="fullName"
             placeholder="Ej. Carlos Mendoza"
-            required
           />
+          @if (userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched) {
+            <small class="error-text">El nombre completo es obligatorio.</small>
+          }
         </div>
 
         <!-- Usuario -->
@@ -33,10 +35,12 @@
           <input
             type="text"
             id="username"
-            name="username"
+            formControlName="username"
             placeholder="Ej. cmendoza"
-            required
           />
+          @if (userForm.get('username')?.invalid && userForm.get('username')?.touched) {
+            <small class="error-text">El usuario es obligatorio.</small>
+          }
         </div>
 
         <!-- Contraseña -->
@@ -45,17 +49,21 @@
           <input
             type="password"
             id="password"
-            name="password"
+            formControlName="password"
             placeholder="••••••••"
-            required
-            minlength="6"
           />
+          @if (userForm.get('password')?.hasError('required') && userForm.get('password')?.touched) {
+            <small class="error-text">La contraseña es obligatoria.</small>
+          }
+          @if (userForm.get('password')?.hasError('minlength') && userForm.get('password')?.touched) {
+            <small class="error-text">Mínimo 6 caracteres.</small>
+          }
         </div>
 
-        <!-- Rol del Usuario (Opcional pero recomendado para Admin) -->
+        <!-- Rol del Usuario -->
         <div class="form-group">
           <label for="role">Rol asignado</label>
-          <select id="role" name="role" >
+          <select id="role" formControlName="role">
             <option value="estudiante">Estudiante</option>
             <option value="docente">Docente</option>
             <option value="admin">Administrador</option>
@@ -66,10 +74,10 @@
 
       <!-- Acciones / Botones -->
       <div class="modal-footer">
-        <button type="button" class="btn-cancel" >
+        <button type="button" class="btn-cancel" (click)="close()">
           Cancelar
         </button>
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="btn-submit" (click)="createUser()">
           Crear usuario
         </button>
       </div>

@@ -7,10 +7,11 @@ import {
 } from '@angular/forms';
 import { Modal } from '../services/modal/modal';
 import { NewUser } from '../../utils/new-user-modal/new-user';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -19,10 +20,27 @@ export class Home {
   private elementoAnterior: SVGElement | null = null;
   @ViewChild('svgMapa', { static: false }) mapaSvg!: ElementRef<SVGElement>;
 
-  constructor(private fb: FormBuilder, private modalService: Modal) {
+  constructor(
+    private fb: FormBuilder,
+    private modalService: Modal,
+    private route: Router
+  ) {
     this.salonForm = this.fb.group({
       nombreSalon: ['', Validators.required],
     });
+  }
+
+  isAdmin: boolean = false;
+
+  ngOnInit() {
+    // Obtenemos la sesión del usuario que guardamos en el login
+    const sesionActual = JSON.parse(
+      localStorage.getItem('usuario_sesion') || '{}',
+    );
+
+    // Verificamos si el rol es 'admin'
+    this.isAdmin = sesionActual.role === 'admin';
+    // Ojo: si en tu backend o en el objeto el campo se llama 'rol', cámbialo a sesionActual.rol
   }
 
   private normalizarTexto(texto: string): string {
@@ -110,14 +128,24 @@ export class Home {
   }
 
   newUsuario() {
-    this.modalService.open({
-      titulo: 'NUEVO ESTUDIANTE',
-      componente: NewUser,
-      ancho: 500,
-      centered: true,
-      maskStyle: { background: 'rgba(0, 0, 0, 0.65)' },
-      closable: false,
-      maskClosable: false,
-    }).afterClose.subscribe();
+    this.modalService
+      .open({
+        titulo: 'NUEVO ESTUDIANTE',
+        componente: NewUser,
+        ancho: 500,
+        centered: true,
+        maskStyle: { background: 'rgba(0, 0, 0, 0.65)' },
+        closable: false,
+        maskClosable: false,
+      })
+      .afterClose.subscribe();
+  }
+
+  logout() {
+    // Borra la sesión actual del localStorage
+    localStorage.removeItem('usuario_sesion');
+
+    // Redirige al usuario a la vista de login
+    this.route.navigateByUrl('/login'); // Ajusta la ruta si la tienes distinta (ej: '/' o '/login')
   }
 }
