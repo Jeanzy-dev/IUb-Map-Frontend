@@ -1,0 +1,129 @@
+// Variables locales
+$primary-dark: #1d2245;
+$accent-yellow: #ffd43b;
+$bg-light: #f0f4f8;
+$white: #ffffff;
+$text-gray: #666666;
+$border-gray: #e0e4ec;
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $bg-light;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container {
+  background-color: $white;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(29, 34, 66, 0.08);
+  text-align: center;
+  box-sizing: border-box;
+
+  .brand-header {
+    margin-bottom: 28px;
+
+    .brand-title {
+      color: $primary-dark;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin: 0;
+
+      span {
+        color: $accent-yellow;
+      }
+    }
+
+    .brand-subtitle {
+      color: $text-gray;
+      font-size: 14px;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+  }
+
+  .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      color: $primary-dark;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid $border-gray;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: $primary-dark;
+      }
+    }
+  }
+
+  .forgot-pass {
+    display: block;
+    text-align: right;
+    color: $text-gray;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: -10px;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: $primary-dark;
+    color: $white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.1s ease;
+
+    &:hover:not(:disabled) {
+      background-color: lighten($primary-dark, 5%);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.99);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .footer-text {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: $text-gray;
+  }
+}

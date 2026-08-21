@@ -7,6 +7,11 @@ export const routes: Routes = [
       import('./auth/login/login').then((m) => m.Login),
   },
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'home',
     loadComponent: () => 
       import('./home/home').then((m) => m.Home)
