@@ -1,0 +1,224 @@
+// Variables de diseño IUB MAP
+$primary-dark: #1d2242;
+$accent-yellow: #f3b229;
+$white: #ffffff;
+$text-gray: #666666;
+$border-gray: #e0e4ec;
+$bg-overlay: rgba(29, 34, 66, 0.55);
+
+:host {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// Fondo oscuro traslúcido
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-overlay;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+// Ventana del Modal
+.modal-container {
+  background-color: $white;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(29, 34, 66, 0.2);
+  overflow: hidden;
+  animation: modalFadeIn 0.25s ease-out;
+  box-sizing: border-box;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid $border-gray;
+
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      h2 {
+        color: $primary-dark;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .admin-badge {
+        background-color: rgba($accent-yellow, 0.2);
+        color: darken($accent-yellow, 15%);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .btn-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: $text-gray;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      border-radius: 50%;
+      transition: color 0.2s ease, background-color 0.2s ease;
+
+      &:hover {
+        color: $primary-dark;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 24px 28px;
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        display: block;
+        color: $primary-dark;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid $border-gray;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+        background-color: $white;
+        color: $primary-dark;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: $primary-dark;
+        }
+
+        &::placeholder {
+          color: lighten($text-gray, 25%);
+        }
+      }
+
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d2242' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 28px 24px;
+    background-color: #fafbfc;
+    border-top: 1px solid lighten($border-gray, 5%);
+
+    button {
+      padding: 12px 22px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cancel {
+      background-color: transparent;
+      border: 1.5px solid $border-gray;
+      color: $text-gray;
+
+      &:hover {
+        border-color: $primary-dark;
+        color: $primary-dark;
+      }
+    }
+
+    .btn-submit {
+      background-color: $primary-dark;
+      border: none;
+      color: $white;
+
+      &:hover:not(:disabled) {
+        background-color: lighten($primary-dark, 6%);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
+
+// Animación de entrada suave
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Ajustes Responsivos (Móvil)
+@media (max-width: 480px) {
+  .modal-container {
+    border-radius: 16px;
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .modal-footer {
+      flex-direction: column-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

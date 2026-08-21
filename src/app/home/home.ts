@@ -5,6 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Modal } from '../services/modal/modal';
+import { NewUser } from '../../utils/new-user-modal/new-user';
 
 @Component({
   selector: 'app-home',
@@ -17,52 +19,11 @@ export class Home {
   private elementoAnterior: SVGElement | null = null;
   @ViewChild('svgMapa', { static: false }) mapaSvg!: ElementRef<SVGElement>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private modalService: Modal) {
     this.salonForm = this.fb.group({
       nombreSalon: ['', Validators.required],
     });
   }
-
-  // buscarEspacio(idBuscado: string) {
-  //   if (!idBuscado || !idBuscado.trim()) return;
-
-  //   const idLimpio = idBuscado.trim();
-
-  //   let nuevoElemento = document.getElementById(
-  //     idLimpio,
-  //   ) as unknown as SVGElement;
-
-  //   if (!nuevoElemento) {
-  //     const todosLosElementos = document.querySelectorAll('[id]');
-  //     todosLosElementos.forEach((el) => {
-  //       if (el.id.toLowerCase() === idLimpio.toLowerCase()) {
-  //         nuevoElemento = el as unknown as SVGElement;
-  //       }
-  //     });
-  //   }
-
-  //   if (nuevoElemento) {
-  //     if (this.elementoAnterior) {
-
-  //       this.elementoAnterior.classList.remove("resaltado");
-  //     }
-
-  //     nuevoElemento.classList.add('resaltado');
-
-  //     this.elementoAnterior = nuevoElemento;
-  //     console.log(this.elementoAnterior);
-
-  //   } else {
-  //     console.warn(`No se encontró el salón o espacio: ${idLimpio}`);
-  //   }
-  // }
-  // En tu home.ts
-
-  // En tu home.ts
-
-  // En tu home.ts
-
-  // Función auxiliar para quitar tildes, mayúsculas y espacios extra
 
   private normalizarTexto(texto: string): string {
     return (texto || '')
@@ -146,5 +107,17 @@ export class Home {
     } else {
       console.warn(`No se encontró salón para la búsqueda: "${busqueda}"`);
     }
+  }
+
+  newUsuario() {
+    this.modalService.open({
+      titulo: 'NUEVO ESTUDIANTE',
+      componente: NewUser,
+      ancho: 500,
+      centered: true,
+      maskStyle: { background: 'rgba(0, 0, 0, 0.65)' },
+      closable: false,
+      maskClosable: false,
+    }).afterClose.subscribe();
   }
 }

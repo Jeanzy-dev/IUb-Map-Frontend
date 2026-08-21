@@ -1,1 +1,79 @@
-<p>new-user works!</p>
+<div class="modal-backdrop" >
+  <div class="modal-container" >
+    
+    <!-- Encabezado del Modal -->
+    <div class="modal-header">
+      <div class="title-wrapper">
+        <h2>Crear Usuario</h2>
+      </div>
+      <button type="button" class="btn-close" (click)="close()">
+        &times;
+      </button>
+    </div>
+
+    <!-- Formulario -->
+    <form >
+      <div class="modal-body">
+        
+        <!-- Nombre Completo -->
+        <div class="form-group">
+          <label for="fullName">Nombre completo</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Ej. Carlos Mendoza"
+            required
+          />
+        </div>
+
+        <!-- Usuario -->
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Ej. cmendoza"
+            required
+          />
+        </div>
+
+        <!-- Contraseña -->
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <!-- Rol del Usuario (Opcional pero recomendado para Admin) -->
+        <div class="form-group">
+          <label for="role">Rol asignado</label>
+          <select id="role" name="role" >
+            <option value="estudiante">Estudiante</option>
+            <option value="docente">Docente</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Acciones / Botones -->
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" >
+          Cancelar
+        </button>
+        <button type="submit" class="btn-submit">
+          Crear usuario
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
